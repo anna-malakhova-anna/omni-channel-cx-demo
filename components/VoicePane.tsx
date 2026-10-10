@@ -36,7 +36,7 @@ export default function VoicePane({ session, onUpdate }: { session?: string; onU
   const callRef = useRef(false);
   const end = useRef<HTMLDivElement>(null);
   useEffect(() => { sessionRef.current = session; }, [session]);
-  useEffect(() => end.current?.scrollIntoView({ behavior: "smooth" }), [lines, interim, phase]);
+  useEffect(() => { end.current?.scrollIntoView({ behavior: "smooth" }); }, [lines, interim, phase]);
   useEffect(() => {
     return () => { window.speechSynthesis?.cancel(); rec.current?.abort(); };
   }, []);

@@ -10,7 +10,7 @@ export default function SmsPane({ onTapLink, session, onReplyDone }: { onTapLink
   const [busy, setBusy] = useState(false);
   const seen = useRef(new Set<string>());
   const end = useRef<HTMLDivElement>(null);
-  useEffect(() => end.current?.scrollIntoView({ behavior: "smooth" }), [msgs]);
+  useEffect(() => { end.current?.scrollIntoView({ behavior: "smooth" }); }, [msgs]);
 
   // Poll the "carrier" for link texts sent by the agent's send_secure_link tool.
   useEffect(() => {
