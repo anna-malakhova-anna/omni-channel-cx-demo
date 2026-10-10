@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { ChannelBadge, type Msg } from "./shared";
+import { Bubble, CHANNEL_META, CardHeader, ChannelTag, clock, type Msg } from "./shared";
 
 export interface ChatState { session?: string; who: string | null; msgs: Msg[] }
 
@@ -30,29 +30,37 @@ export default function ChatPane({ state, setState }: { state: ChatState; setSta
   }
 
   return (
-    <section className="flex h-full min-h-0 flex-col rounded-xl border border-zinc-200 p-4 dark:border-zinc-800">
-      <header className="flex items-center justify-between border-b border-zinc-200 pb-3 dark:border-zinc-800">
-        <div>
-          <h2 className="font-semibold">Web chat</h2>
-          <p className="text-xs text-zinc-500">Northgate Bank</p>
-        </div>
-        <span className={`rounded-full px-2.5 py-1 text-xs ${state.who ? "bg-emerald-100 text-emerald-800" : "bg-zinc-100 text-zinc-600"}`}>
-          {state.who ? `✓ Verified: ${state.who}` : "Not verified"}
-        </span>
-      </header>
-      <div className="min-h-0 flex-1 space-y-3 overflow-y-auto py-4">
-        {state.msgs.map((m, i) => (
-          <div key={i} className={`flex flex-col ${m.role === "customer" ? "items-end" : "items-start"}`}>
-            {m.channel !== "chat" && <ChannelBadge channel={m.channel} />}
-            <div className={`max-w-[85%] whitespace-pre-wrap rounded-2xl px-3.5 py-2 text-sm ${m.kind === "notice" ? "bg-amber-50 text-amber-900" : m.role === "customer" ? "bg-blue-600 text-white" : "bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-100"}`}>{m.text}</div>
-          </div>
-        ))}
-        {busy && <p className="text-xs text-zinc-500">Agent is typing…</p>}
+    <section aria-label="Web chat" className="flex h-full min-h-0 flex-col rounded-card border border-card-border bg-card p-4 text-onlight shadow-card">
+      <CardHeader
+        channel="chat" title="Chat" live={busy}
+        right={<span className={`rounded-full px-2.5 py-1 text-[13px] ${state.who ? "bg-accent/30 text-[#244A22]" : "bg-black/5 text-onlight-muted"}`}>{state.who ? `Verified · ${state.who}` : "Not verified"}</span>}
+      />
+      <div className="min-h-0 flex-1 space-y-3 overflow-y-auto py-4" aria-live="polite">
+        {state.msgs.map((m, i) => {
+          if (m.kind === "divider") {
+            return (
+              <div key={i} className="flex items-center gap-2 py-1 text-[13px] text-onlight-muted" role="separator">
+                <span className="h-px flex-1 bg-card-border" />
+                <ChannelTag channel={m.channel} />
+                <span>Continued from your {CHANNEL_META[m.channel]?.noun} · {clock(m.ts)}</span>
+                <span className="h-px flex-1 bg-card-border" />
+              </div>
+            );
+          }
+          if (m.kind === "notice") return <p key={i} className="bubble-in rounded-bubble bg-[#F3E3D6] px-3.5 py-2 text-[15px] text-[#5A3418]">{m.text}</p>;
+          return (
+            <div key={i} className="space-y-1">
+              {m.dim && <div className={m.role === "customer" ? "text-right" : ""}><ChannelTag channel={m.channel} /></div>}
+              <Bubble role={m.role} dim={m.dim}>{m.text}</Bubble>
+            </div>
+          );
+        })}
+        {busy && <p className="px-1 text-[13px] text-onlight-muted">Agent is typing…</p>}
         <div ref={end} />
       </div>
-      <form onSubmit={send} className="flex gap-2 border-t border-zinc-200 pt-3 dark:border-zinc-800">
-        <input value={input} onChange={(e) => setInput(e.target.value)} placeholder="Type a message" className="flex-1 rounded-lg border border-zinc-300 bg-transparent px-3 py-2 text-sm outline-none focus:border-blue-500 dark:border-zinc-700" />
-        <button disabled={busy || !input.trim()} className="rounded-lg bg-blue-600 px-4 py-2 text-sm text-white disabled:opacity-40">Send</button>
+      <form onSubmit={send} className="flex gap-2 border-t border-card-border pt-3">
+        <input aria-label="Message" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Type a message" className="min-w-0 flex-1 rounded-full border border-card-border bg-white px-4 py-2 text-[15px] text-onlight outline-none placeholder:text-onlight-muted" />
+        <button disabled={busy || !input.trim()} className="btn-primary">Send</button>
       </form>
     </section>
   );

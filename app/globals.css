@@ -1,26 +1,105 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Surfaces */
+  --bg-0: #121816;
+  --bg-1: #1A2220;
+  --bg-gradient: radial-gradient(1200px 700px at 70% 20%, #2C3633 0%, #121816 65%);
+  --card: #F6F7F5;
+  --card-border: #E3E6E1;
+
+  /* Text */
+  --text-on-dark: #EEF1EE;
+  --text-on-dark-muted: #9AA5A0;
+  --text-on-light: #1B2420;
+  --text-on-light-muted: #5F6A64; /* darkened slightly from #6B756F to clear 4.5:1 on --card */
+
+  /* Accent */
+  --accent: #8FBF8A;
+  --accent-ink: #10200F;
+  --accent-warm: #D98C5F;
+
+  /* Message bubbles */
+  --bubble-customer: #D3DCEB;
+  --bubble-agent: #ECEEEA;
+
+  /* Channel colours (icons, timeline tags on dark) */
+  --ch-voice: #B79CE0;
+  --ch-sms: #7FB7D9;
+  --ch-chat: #8FBF8A;
+  --ch-system: #9AA5A0;
+  /* Darker twins for text and links on light surfaces (the pastels fail contrast there) */
+  --ch-voice-ink: #5B3E9B;
+  --ch-sms-ink: #1F5F8B;
+  --ch-chat-ink: #2F6B2E;
+  --ch-system-ink: #55605A;
+
+  /* Shape and depth */
+  --radius-pill: 999px;
+  --radius-card: 20px;
+  --radius-bubble: 18px;
+  --shadow-card: 0 20px 60px rgba(0, 0, 0, 0.35);
+  --border-dark: 1px solid rgba(255, 255, 255, 0.08);
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg0: var(--bg-0);
+  --color-bg1: var(--bg-1);
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+  --color-ondark: var(--text-on-dark);
+  --color-ondark-muted: var(--text-on-dark-muted);
+  --color-onlight: var(--text-on-light);
+  --color-onlight-muted: var(--text-on-light-muted);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-warm: var(--accent-warm);
+  --color-bubble-customer: var(--bubble-customer);
+  --color-bubble-agent: var(--bubble-agent);
+  --color-ch-voice: var(--ch-voice);
+  --color-ch-sms: var(--ch-sms);
+  --color-ch-chat: var(--ch-chat);
+  --color-ch-system: var(--ch-system);
+  --radius-card: var(--radius-card);
+  --radius-bubble: var(--radius-bubble);
+  --shadow-card: var(--shadow-card);
+  --font-sans: var(--font-inter), system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+html { color-scheme: dark; }
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-gradient), var(--bg-0);
+  background-attachment: fixed;
+  color: var(--text-on-dark);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 17px;
+}
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.btn-primary { background: var(--accent); color: var(--accent-ink); border-radius: var(--radius-pill); height: 44px; padding: 0 20px; font-weight: 500; transition: filter 0.2s var(--ease); }
+.btn-primary:hover:not(:disabled) { filter: brightness(1.06); }
+.btn-primary:disabled { opacity: 0.45; }
+.btn-secondary { border: var(--border-dark); color: var(--text-on-dark); border-radius: var(--radius-pill); height: 44px; padding: 0 20px; transition: background 0.2s var(--ease); }
+.btn-secondary:hover { background: rgba(255, 255, 255, 0.06); }
+.btn-secondary-light { border: 1px solid var(--card-border); color: var(--text-on-light); border-radius: var(--radius-pill); height: 44px; padding: 0 20px; }
+.btn-secondary-light:hover { background: rgba(0, 0, 0, 0.04); }
+
+@keyframes bubble-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes banner-in { from { opacity: 0; transform: translateY(-120%); } to { opacity: 1; transform: none; } }
+@keyframes ripple { from { box-shadow: 0 0 0 0 color-mix(in srgb, var(--ch-voice) 55%, transparent); } to { box-shadow: 0 0 0 26px transparent; } }
+@keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.45; transform: scale(0.8); } }
+@keyframes bar { 0%, 100% { transform: scaleY(0.35); } 50% { transform: scaleY(1); } }
+
+.bubble-in { animation: bubble-in 0.25s var(--ease) both; }
+.banner-in { animation: banner-in 0.3s var(--ease) both; }
+.ripple { animation: ripple 1.4s var(--ease) infinite; }
+.live-dot.on { animation: pulse-dot 1.2s ease-in-out infinite; }
+.wave i { display: inline-block; width: 3px; height: 14px; border-radius: 2px; background: var(--ch-voice-ink); transform-origin: center; animation: bar 0.9s ease-in-out infinite; }
+.wave i:nth-child(2) { animation-delay: 0.15s; }
+.wave i:nth-child(3) { animation-delay: 0.3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bubble-in, .banner-in, .ripple, .live-dot.on, .wave i { animation: none; }
 }

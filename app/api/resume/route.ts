@@ -14,7 +14,7 @@ export async function POST(req: Request) {
   const customer = repo.getCustomer(check.customerId)!;
   const history = repo.getTimeline(customer.id)
     .filter((e) => e.role !== "tool" && e.channel !== "system" && !e.content.includes("/chat?t="))
-    .map((e) => ({ channel: e.channel, role: e.role, text: e.content }));
+    .map((e) => ({ channel: e.channel, role: e.role, text: e.content, ts: e.timestamp }));
   try {
     const { reply } = await handleResume(session);
     return Response.json({ ok: true, sessionToken: session.id, customerName: customer.fullName, history, reply });

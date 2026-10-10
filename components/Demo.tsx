@@ -18,17 +18,32 @@ export default function Demo() {
     window.location.reload(); // simplest way to clear every pane's local state
   }
 
+  const pane = "h-[600px] min-[1200px]:h-[clamp(520px,calc(100dvh-300px),720px)]";
+
   return (
-    <div className="flex flex-1 flex-col">
-      <div className="flex items-center justify-between gap-3 bg-amber-50 px-4 py-1 text-xs text-amber-900">
-        <span>Northgate Bank is fictional. All data is synthetic and every channel is simulated.</span>
-        <button onClick={reset} className="shrink-0 rounded border border-amber-300 px-2 py-0.5 hover:bg-amber-100">Reset demo</button>
+    <div className="mx-auto flex w-full max-w-[1440px] flex-1 flex-col px-5 pb-6 pt-5 min-[760px]:px-8">
+      <header className="flex h-16 items-center justify-between rounded-full bg-bg1 pl-4 pr-3" style={{ border: "var(--border-dark)" }}>
+        <div className="flex items-center gap-3">
+          <span className="flex h-7 w-7 items-center justify-center rounded-full bg-accent text-accent-ink" aria-hidden="true">
+            <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M6 19V5l12 14V5" /></svg>
+          </span>
+          <span className="text-[17px] font-medium tracking-[-0.01em]">Northgate</span>
+          <span className="hidden text-[15px] text-ondark-muted min-[760px]:inline">Omnichannel agent demo</span>
+        </div>
+        <button onClick={reset} className="btn-secondary">Reset demo</button>
+      </header>
+
+      <div className="px-1 pb-5 pt-7">
+        <p className="text-[13px] uppercase tracking-[0.08em] text-warm">Simulated demo</p>
+        <h1 className="mt-1 text-[clamp(32px,4vw,56px)] font-normal leading-[1.05] tracking-[-0.03em]">One agent. Every channel. No repeating yourself.</h1>
+        <p className="mt-2 max-w-3xl text-[17px] text-ondark-muted">Call, get a text, continue in chat, reach a human. Verified once, with the whole story carried across. Fictional bank, synthetic data.</p>
       </div>
-      <main className="mx-auto grid w-full max-w-[1700px] flex-1 grid-cols-1 gap-4 p-4 md:grid-cols-2 xl:h-[calc(100dvh-28px)] xl:grid-cols-[250px_280px_minmax(0,1fr)_minmax(0,1.1fr)]">
-        <div className="h-[520px] xl:h-full"><VoicePane session={chat.session} onUpdate={update} /></div>
-        <div className="h-[520px] xl:h-full"><SmsPane onTapLink={tapLink} session={chat.session} onReplyDone={update} /></div>
-        <div className="h-[520px] xl:h-full"><ChatPane state={chat} setState={setChat} /></div>
-        <div className="h-[520px] xl:h-full"><DeskPane /></div>
+
+      <main className="grid grid-cols-1 gap-5 min-[760px]:grid-cols-2 min-[1200px]:grid-cols-4">
+        <div className={pane}><VoicePane session={chat.session} onUpdate={update} /></div>
+        <div className={pane}><SmsPane onTapLink={tapLink} session={chat.session} onReplyDone={update} /></div>
+        <div className={pane}><ChatPane state={chat} setState={setChat} /></div>
+        <div className={pane}><DeskPane /></div>
       </main>
     </div>
   );

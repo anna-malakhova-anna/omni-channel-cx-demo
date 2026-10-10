@@ -1,4 +1,5 @@
 "use client";
+import { Bubble, CardHeader } from "./shared";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 // Minimal typings: the Web Speech API isn't in lib.dom for Chromium's prefixed implementation.
@@ -118,35 +119,34 @@ export default function VoicePane({ session, onUpdate }: { session?: string; onU
   const status = { idle: "Hold to talk", speaking: "Agent speaking…", listening: "Listening…", thinking: "Thinking…" }[phase];
 
   return (
-    <section className="flex h-full min-h-0 flex-col rounded-xl border border-zinc-200 p-4 dark:border-zinc-800">
-      <header className="border-b border-zinc-200 pb-3 dark:border-zinc-800">
-        <h2 className="font-semibold">Voice</h2>
-        <p className="text-xs text-zinc-500">Northgate Bank phone line · push to talk</p>
-      </header>
-      {!supported && <p className="mt-3 rounded-lg bg-amber-50 p-3 text-xs text-amber-900">Voice needs speech recognition, which this browser doesn&apos;t support. Please open the demo in Chrome.</p>}
-      <div className="min-h-0 flex-1 space-y-2 overflow-y-auto py-3 text-sm">
-        {!inCall && lines.length === 0 && <p className="pt-6 text-center text-xs text-zinc-400">Press Call to phone the bank as Maya.</p>}
-        {lines.map((l, i) => (
-          <p key={i}><span className="mr-1 text-[10px] font-medium uppercase tracking-wide text-zinc-500">{l.role === "agent" ? "Agent" : "You"}</span>{l.text}</p>
-        ))}
-        {interim && <p className="italic text-zinc-500"><span className="mr-1 text-[10px] font-medium uppercase not-italic tracking-wide">You</span>{interim}…</p>}
+    <section aria-label="Voice call" className="flex h-full min-h-0 flex-col rounded-card border border-card-border bg-card p-4 text-onlight shadow-card">
+      <CardHeader channel="voice" title="Voice" live={phase === "speaking" || phase === "thinking"} right={phase === "speaking" ? <span className="wave flex h-4 items-center gap-0.5" aria-hidden="true"><i /><i /><i /></span> : undefined} />
+      {!supported && <p className="mt-3 rounded-bubble bg-[#F3E3D6] p-3 text-[13px] text-[#5A3418]">Voice needs speech recognition, which this browser doesn&apos;t support. Please open the demo in Chrome.</p>}
+      <div className="min-h-0 flex-1 space-y-3 overflow-y-auto py-4" aria-live="polite">
+        {!inCall && lines.length === 0 && <p className="pt-8 text-center text-[15px] text-onlight-muted">Call Northgate as Maya Chen to start.</p>}
+        {lines.map((l, i) => <Bubble key={i} role={l.role}>{l.text}</Bubble>)}
         <div ref={end} />
       </div>
-      {note && <p className="pb-2 text-xs text-red-600">{note}</p>}
-      <div className="flex flex-col items-center gap-2 border-t border-zinc-200 pt-3 dark:border-zinc-800">
+      {note && <p role="alert" className="pb-2 text-[13px] text-[#9A2B1F]">{note}</p>}
+      <div className="flex flex-col items-center gap-2 border-t border-card-border pt-3">
+        {interim && <p className="line-clamp-2 min-h-5 text-center text-[15px] italic text-onlight-muted">{interim}…</p>}
         {!inCall ? (
-          <button onClick={startCall} disabled={!supported} className="w-full rounded-full bg-emerald-600 py-2.5 text-sm font-medium text-white disabled:opacity-40">📞 Call Northgate</button>
+          <button onClick={startCall} disabled={!supported} className="btn-primary w-full">Call Northgate</button>
         ) : (
           <>
             <button
+              aria-pressed={phase === "listening"} aria-label="Push to talk: hold while you speak"
               onPointerDown={(e) => { e.currentTarget.setPointerCapture(e.pointerId); startListening(); }}
               onPointerUp={stopListening} onPointerCancel={stopListening}
               onKeyDown={(e) => { if ((e.key === " " || e.key === "Enter") && !e.repeat) { e.preventDefault(); startListening(); } }}
               onKeyUp={(e) => { if (e.key === " " || e.key === "Enter") stopListening(); }}
               disabled={phase === "thinking"}
-              className={`w-full select-none rounded-full py-3 text-sm font-medium text-white transition ${phase === "listening" ? "scale-[1.02] bg-red-600" : "bg-blue-600"} disabled:opacity-50`}
-            >🎙️ {status}</button>
-            <button onClick={endCall} className="text-xs text-zinc-500 underline">End call</button>
+              className={`flex h-20 w-20 select-none items-center justify-center rounded-full border-2 border-ch-voice transition-colors duration-200 disabled:opacity-50 ${phase === "listening" ? "ripple bg-ch-voice" : "bg-transparent"}`}
+            >
+              <svg viewBox="0 0 24 24" className="h-8 w-8" fill={phase === "listening" ? "#fff" : "var(--ch-voice-ink)"} aria-hidden="true"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.9V22h2v-3.1A7 7 0 0 0 19 12z" /></svg>
+            </button>
+            <span className="text-[13px] text-onlight-muted">{status}</span>
+            <button onClick={endCall} className="btn-secondary-light !h-9 text-[13px]">End call</button>
           </>
         )}
       </div>
