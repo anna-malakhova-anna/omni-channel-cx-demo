@@ -1,0 +1,784 @@
+{
+  "customers": [
+    {
+      "id": "cus_maya",
+      "fullName": "Maya Chen",
+      "phone": "+1 416-555-0142",
+      "email": "maya.chen@example.com",
+      "preferredChannel": "sms"
+    },
+    {
+      "id": "cus_daniel",
+      "fullName": "Daniel Okafor",
+      "phone": "+1 604-555-0188",
+      "email": "daniel.okafor@example.com",
+      "preferredChannel": "voice"
+    },
+    {
+      "id": "cus_priya",
+      "fullName": "Priya Raman",
+      "phone": "+1 514-555-0117",
+      "email": "priya.raman@example.com",
+      "preferredChannel": "chat"
+    },
+    {
+      "id": "cus_lucas",
+      "fullName": "Lucas Tremblay",
+      "phone": "+1 403-555-0163",
+      "email": "lucas.tremblay@example.com",
+      "preferredChannel": "sms"
+    }
+  ],
+  "cards": [
+    {
+      "id": "card_maya",
+      "customerId": "cus_maya",
+      "last4": "4417",
+      "status": "active"
+    },
+    {
+      "id": "card_daniel",
+      "customerId": "cus_daniel",
+      "last4": "9032",
+      "status": "active"
+    },
+    {
+      "id": "card_priya",
+      "customerId": "cus_priya",
+      "last4": "6258",
+      "status": "active"
+    },
+    {
+      "id": "card_lucas",
+      "customerId": "cus_lucas",
+      "last4": "1175",
+      "status": "active"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "txn_001",
+      "cardId": "card_maya",
+      "date": "2026-10-09",
+      "merchant": "NETFLIX.COM",
+      "amount": 16.49,
+      "currency": "CAD",
+      "status": "pending"
+    },
+    {
+      "id": "txn_002",
+      "cardId": "card_maya",
+      "date": "2026-10-08",
+      "merchant": "ROGERS WIRELESS",
+      "amount": 85,
+      "currency": "CAD",
+      "status": "pending"
+    },
+    {
+      "id": "txn_003",
+      "cardId": "card_maya",
+      "date": "2026-10-07",
+      "merchant": "STARBUCKS #2210",
+      "amount": 9.56,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_004",
+      "cardId": "card_maya",
+      "date": "2026-10-05",
+      "merchant": "LOBLAWS #1023",
+      "amount": 125.29,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_005",
+      "cardId": "card_maya",
+      "date": "2026-10-04",
+      "merchant": "UBER *TRIP",
+      "amount": 13.75,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_006",
+      "cardId": "card_maya",
+      "date": "2026-10-02",
+      "merchant": "LOBLAWS #1023",
+      "amount": 138.36,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_007",
+      "cardId": "card_maya",
+      "date": "2026-10-01",
+      "merchant": "QUICKMART ONLINE",
+      "amount": 214.37,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_008",
+      "cardId": "card_maya",
+      "date": "2026-09-30",
+      "merchant": "GOODLIFE FITNESS",
+      "amount": 54.99,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_009",
+      "cardId": "card_maya",
+      "date": "2026-09-28",
+      "merchant": "AMAZON.CA",
+      "amount": 62.45,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_010",
+      "cardId": "card_maya",
+      "date": "2026-09-27",
+      "merchant": "AMAZON.CA",
+      "amount": 78.53,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_011",
+      "cardId": "card_maya",
+      "date": "2026-09-25",
+      "merchant": "PETRO-CANADA",
+      "amount": 80.09,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_012",
+      "cardId": "card_maya",
+      "date": "2026-09-24",
+      "merchant": "UBER *TRIP",
+      "amount": 27.65,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_013",
+      "cardId": "card_maya",
+      "date": "2026-09-23",
+      "merchant": "METRO #556",
+      "amount": 59,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_014",
+      "cardId": "card_maya",
+      "date": "2026-09-21",
+      "merchant": "SHOPPERS DRUG MART",
+      "amount": 12.78,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_015",
+      "cardId": "card_maya",
+      "date": "2026-09-20",
+      "merchant": "PETRO-CANADA",
+      "amount": 82.54,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_016",
+      "cardId": "card_maya",
+      "date": "2026-09-18",
+      "merchant": "UBER *TRIP",
+      "amount": 17.9,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_017",
+      "cardId": "card_maya",
+      "date": "2026-09-17",
+      "merchant": "GOODLIFE FITNESS",
+      "amount": 54.99,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_018",
+      "cardId": "card_maya",
+      "date": "2026-09-16",
+      "merchant": "TIM HORTONS #4410",
+      "amount": 6.55,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_019",
+      "cardId": "card_maya",
+      "date": "2026-09-14",
+      "merchant": "SHOPPERS DRUG MART",
+      "amount": 13.62,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_020",
+      "cardId": "card_maya",
+      "date": "2026-09-13",
+      "merchant": "TIM HORTONS #4410",
+      "amount": 8.22,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_021",
+      "cardId": "card_daniel",
+      "date": "2026-10-09",
+      "merchant": "PETRO-CANADA",
+      "amount": 48.8,
+      "currency": "CAD",
+      "status": "pending"
+    },
+    {
+      "id": "txn_022",
+      "cardId": "card_daniel",
+      "date": "2026-10-08",
+      "merchant": "STARBUCKS #2210",
+      "amount": 9.56,
+      "currency": "CAD",
+      "status": "pending"
+    },
+    {
+      "id": "txn_023",
+      "cardId": "card_daniel",
+      "date": "2026-10-07",
+      "merchant": "NETFLIX.COM",
+      "amount": 16.49,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_024",
+      "cardId": "card_daniel",
+      "date": "2026-10-05",
+      "merchant": "STARBUCKS #2210",
+      "amount": 6.12,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_025",
+      "cardId": "card_daniel",
+      "date": "2026-10-04",
+      "merchant": "SPOTIFY",
+      "amount": 11.99,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_026",
+      "cardId": "card_daniel",
+      "date": "2026-10-02",
+      "merchant": "AMAZON.CA",
+      "amount": 89.73,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_027",
+      "cardId": "card_daniel",
+      "date": "2026-10-01",
+      "merchant": "GLOBEX DIGITAL SUBS",
+      "amount": 89.99,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_028",
+      "cardId": "card_daniel",
+      "date": "2026-09-30",
+      "merchant": "SPOTIFY",
+      "amount": 11.99,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_029",
+      "cardId": "card_daniel",
+      "date": "2026-09-28",
+      "merchant": "SHELL C0127",
+      "amount": 79.34,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_030",
+      "cardId": "card_daniel",
+      "date": "2026-09-27",
+      "merchant": "STARBUCKS #2210",
+      "amount": 6.28,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_031",
+      "cardId": "card_daniel",
+      "date": "2026-09-25",
+      "merchant": "GOODLIFE FITNESS",
+      "amount": 54.99,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_032",
+      "cardId": "card_daniel",
+      "date": "2026-09-24",
+      "merchant": "SHOPPERS DRUG MART",
+      "amount": 17.26,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_033",
+      "cardId": "card_daniel",
+      "date": "2026-09-23",
+      "merchant": "NETFLIX.COM",
+      "amount": 16.49,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_034",
+      "cardId": "card_daniel",
+      "date": "2026-09-21",
+      "merchant": "ROGERS WIRELESS",
+      "amount": 85,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_035",
+      "cardId": "card_daniel",
+      "date": "2026-09-20",
+      "merchant": "STARBUCKS #2210",
+      "amount": 6.96,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_036",
+      "cardId": "card_daniel",
+      "date": "2026-09-18",
+      "merchant": "SHELL C0127",
+      "amount": 59.53,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_037",
+      "cardId": "card_daniel",
+      "date": "2026-09-17",
+      "merchant": "SHELL C0127",
+      "amount": 40.09,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_038",
+      "cardId": "card_daniel",
+      "date": "2026-09-16",
+      "merchant": "LCBO #331",
+      "amount": 58,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_039",
+      "cardId": "card_daniel",
+      "date": "2026-09-14",
+      "merchant": "SHELL C0127",
+      "amount": 64.44,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_040",
+      "cardId": "card_daniel",
+      "date": "2026-09-13",
+      "merchant": "PETRO-CANADA",
+      "amount": 84.73,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_041",
+      "cardId": "card_priya",
+      "date": "2026-10-09",
+      "merchant": "UBER *TRIP",
+      "amount": 25.42,
+      "currency": "CAD",
+      "status": "pending"
+    },
+    {
+      "id": "txn_042",
+      "cardId": "card_priya",
+      "date": "2026-10-08",
+      "merchant": "STARBUCKS #2210",
+      "amount": 8.97,
+      "currency": "CAD",
+      "status": "pending"
+    },
+    {
+      "id": "txn_043",
+      "cardId": "card_priya",
+      "date": "2026-10-07",
+      "merchant": "AMAZON.CA",
+      "amount": 65.59,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_044",
+      "cardId": "card_priya",
+      "date": "2026-10-05",
+      "merchant": "PETRO-CANADA",
+      "amount": 88.07,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_045",
+      "cardId": "card_priya",
+      "date": "2026-10-04",
+      "merchant": "SPOTIFY",
+      "amount": 11.99,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_046",
+      "cardId": "card_priya",
+      "date": "2026-10-02",
+      "merchant": "ROGERS WIRELESS",
+      "amount": 85,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_047",
+      "cardId": "card_priya",
+      "date": "2026-10-01",
+      "merchant": "TRAVELNOW BOOKING",
+      "amount": 642,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_048",
+      "cardId": "card_priya",
+      "date": "2026-09-30",
+      "merchant": "SHELL C0127",
+      "amount": 52.48,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_049",
+      "cardId": "card_priya",
+      "date": "2026-09-28",
+      "merchant": "GOODLIFE FITNESS",
+      "amount": 54.99,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_050",
+      "cardId": "card_priya",
+      "date": "2026-09-27",
+      "merchant": "PETRO-CANADA",
+      "amount": 54.4,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_051",
+      "cardId": "card_priya",
+      "date": "2026-09-25",
+      "merchant": "LOBLAWS #1023",
+      "amount": 67.97,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_052",
+      "cardId": "card_priya",
+      "date": "2026-09-24",
+      "merchant": "METRO #556",
+      "amount": 90.8,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_053",
+      "cardId": "card_priya",
+      "date": "2026-09-23",
+      "merchant": "SHELL C0127",
+      "amount": 62.92,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_054",
+      "cardId": "card_priya",
+      "date": "2026-09-21",
+      "merchant": "PETRO-CANADA",
+      "amount": 63.78,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_055",
+      "cardId": "card_priya",
+      "date": "2026-09-20",
+      "merchant": "SPOTIFY",
+      "amount": 11.99,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_056",
+      "cardId": "card_priya",
+      "date": "2026-09-18",
+      "merchant": "SPOTIFY",
+      "amount": 11.99,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_057",
+      "cardId": "card_priya",
+      "date": "2026-09-17",
+      "merchant": "SHELL C0127",
+      "amount": 79.19,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_058",
+      "cardId": "card_priya",
+      "date": "2026-09-16",
+      "merchant": "SHELL C0127",
+      "amount": 70.55,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_059",
+      "cardId": "card_priya",
+      "date": "2026-09-14",
+      "merchant": "LCBO #331",
+      "amount": 42.02,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_060",
+      "cardId": "card_priya",
+      "date": "2026-09-13",
+      "merchant": "NETFLIX.COM",
+      "amount": 16.49,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_061",
+      "cardId": "card_lucas",
+      "date": "2026-10-09",
+      "merchant": "AMAZON.CA",
+      "amount": 50.36,
+      "currency": "CAD",
+      "status": "pending"
+    },
+    {
+      "id": "txn_062",
+      "cardId": "card_lucas",
+      "date": "2026-10-08",
+      "merchant": "TIM HORTONS #4410",
+      "amount": 5.86,
+      "currency": "CAD",
+      "status": "pending"
+    },
+    {
+      "id": "txn_063",
+      "cardId": "card_lucas",
+      "date": "2026-10-07",
+      "merchant": "SHOPPERS DRUG MART",
+      "amount": 47.03,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_064",
+      "cardId": "card_lucas",
+      "date": "2026-10-05",
+      "merchant": "ROGERS WIRELESS",
+      "amount": 85,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_065",
+      "cardId": "card_lucas",
+      "date": "2026-10-04",
+      "merchant": "PETRO-CANADA",
+      "amount": 55.42,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_066",
+      "cardId": "card_lucas",
+      "date": "2026-10-02",
+      "merchant": "LCBO #331",
+      "amount": 49.25,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_067",
+      "cardId": "card_lucas",
+      "date": "2026-10-01",
+      "merchant": "PIXELPLAY GAMES",
+      "amount": 59.99,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_068",
+      "cardId": "card_lucas",
+      "date": "2026-09-30",
+      "merchant": "TIM HORTONS #4410",
+      "amount": 9.42,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_069",
+      "cardId": "card_lucas",
+      "date": "2026-09-28",
+      "merchant": "METRO #556",
+      "amount": 75.02,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_070",
+      "cardId": "card_lucas",
+      "date": "2026-09-27",
+      "merchant": "METRO #556",
+      "amount": 34.55,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_071",
+      "cardId": "card_lucas",
+      "date": "2026-09-25",
+      "merchant": "PETRO-CANADA",
+      "amount": 64.61,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_072",
+      "cardId": "card_lucas",
+      "date": "2026-09-24",
+      "merchant": "GOODLIFE FITNESS",
+      "amount": 54.99,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_073",
+      "cardId": "card_lucas",
+      "date": "2026-09-23",
+      "merchant": "ROGERS WIRELESS",
+      "amount": 85,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_074",
+      "cardId": "card_lucas",
+      "date": "2026-09-21",
+      "merchant": "SHELL C0127",
+      "amount": 52.68,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_075",
+      "cardId": "card_lucas",
+      "date": "2026-09-20",
+      "merchant": "METRO #556",
+      "amount": 94.95,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_076",
+      "cardId": "card_lucas",
+      "date": "2026-09-18",
+      "merchant": "GOODLIFE FITNESS",
+      "amount": 54.99,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_077",
+      "cardId": "card_lucas",
+      "date": "2026-09-17",
+      "merchant": "GOODLIFE FITNESS",
+      "amount": 54.99,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_078",
+      "cardId": "card_lucas",
+      "date": "2026-09-16",
+      "merchant": "LOBLAWS #1023",
+      "amount": 128.14,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_079",
+      "cardId": "card_lucas",
+      "date": "2026-09-14",
+      "merchant": "NETFLIX.COM",
+      "amount": 16.49,
+      "currency": "CAD",
+      "status": "posted"
+    },
+    {
+      "id": "txn_080",
+      "cardId": "card_lucas",
+      "date": "2026-09-13",
+      "merchant": "GOODLIFE FITNESS",
+      "amount": 54.99,
+      "currency": "CAD",
+      "status": "posted"
+    }
+  ],
+  "disputes": [],
+  "tickets": [],
+  "timeline": [],
+  "linkTokens": []
+}

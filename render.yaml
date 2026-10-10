@@ -1,0 +1,21 @@
+# Render Blueprint. Single long-lived Node process: demo state and sessions are in memory,
+# so do not scale beyond one instance or move to serverless.
+services:
+  - type: web
+    name: northgate-cx-demo
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: ANTHROPIC_API_KEY
+        sync: false   # set in the Render dashboard, never committed
+      - key: ANTHROPIC_MODEL
+        value: claude-sonnet-5-5
+      - key: LINK_SIGNING_SECRET
+        generateValue: true
+      - key: APP_URL
+        sync: false   # e.g. https://northgate-cx-demo.onrender.com
