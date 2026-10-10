@@ -18,8 +18,6 @@ Customers start on the phone, get pushed to a link or an app, and have to re-ide
 6. Maya asks for a human. The agent escalates.
 7. **Agent desk:** a ticket appears with the customer, dispute status, an agent-written summary, and the full cross-channel timeline.
 
-*(Add GIF here: `docs/demo.gif`)*
-
 ## Run it
 
 ```bash
