@@ -62,7 +62,7 @@ export default function DeskPane() {
             {t.timeline.length === 0 && <p className="text-[13px] text-ondark-muted">No history. The customer was never verified.</p>}
             <ol className="space-y-2">
               {t.timeline.map((e) => (
-                <li key={e.id} className="flex items-center gap-2 text-[13px]" title={e.content}>
+                <li key={e.id} className="relative flex items-center gap-2 text-[13px]" title={e.content}>
                   <ChannelIcon channel={e.channel} dark className="h-4 w-4 shrink-0" />
                   <span className="w-[58px] shrink-0 text-ondark-muted">{clock(e.timestamp)}</span>
                   <span className="w-[62px] shrink-0 text-ondark-muted">{e.role === "customer" ? "Customer" : e.role === "agent" ? "Agent" : "System"}</span>

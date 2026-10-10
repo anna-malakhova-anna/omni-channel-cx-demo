@@ -33,7 +33,7 @@ export default function ChatPane({ state, setState }: { state: ChatState; setSta
     <section aria-label="Web chat" className="flex h-full min-h-0 flex-col rounded-card border border-card-border bg-card p-4 text-onlight shadow-card">
       <CardHeader
         channel="chat" title="Chat" live={busy}
-        right={<span className={`rounded-full px-2.5 py-1 text-[13px] ${state.who ? "bg-accent/30 text-[#244A22]" : "bg-black/5 text-onlight-muted"}`}>{state.who ? `Verified · ${state.who}` : "Not verified"}</span>}
+        right={<span className={`shrink-0 whitespace-nowrap rounded-full px-2.5 py-1 text-[13px] ${state.who ? "bg-accent/30 text-[#244A22]" : "bg-black/5 text-onlight-muted"}`}>{state.who ? `Verified · ${state.who.split(" ")[0]}` : "Not verified"}</span>}
       />
       <div className="min-h-0 flex-1 space-y-3 overflow-y-auto py-4" aria-live="polite">
         {state.msgs.map((m, i) => {
