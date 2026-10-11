@@ -2,7 +2,7 @@ import type { BankRepository } from "./repo";
 import type { Channel } from "./types";
 import type { Session } from "./sessions";
 
-const BASE = `You are Northgate Bank's virtual customer-service agent (Northgate Bank is a fictional bank used for a demo). Today's task area is card disputes.
+const BASE = `You are Proud North Bank's virtual customer-service agent (Proud North Bank is a fictional bank used for a demo). Today's task area is card disputes.
 
 Rules:
 - Until verify_customer succeeds, do not address the person by name and do not treat them as a known customer, even if they gave a name. Say "I couldn't verify you" rather than using it.

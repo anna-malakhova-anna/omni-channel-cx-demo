@@ -1,8 +1,8 @@
-# Northgate Bank: channel-switch continuity demo
+# Proud North Bank: channel-switch continuity demo
 
 One AI customer-service agent working across **voice, SMS and web chat**, with identity and conversation state carried across channel switches. A customer is verified once and never asked to repeat themselves.
 
-> **Northgate Bank is fictional and all data is synthetic.** Voice, SMS and the bank are all simulated in the browser. No telephony, no real accounts, no real bank.
+> **Proud North Bank is fictional and all data is synthetic.** Voice, SMS and the bank are all simulated in the browser. No telephony, no real accounts, no real bank.
 
 ## The customer problem
 
@@ -27,7 +27,7 @@ npm run dev                  # http://localhost:3000, use Chrome for voice
 npm test                     # unit tests for tools and tokens
 ```
 
-Script: press **Call Northgate**, then hold the button and say "Maya Chen, four four one seven." Say you don't recognize a charge of about two hundred dollars online, confirm it's the QuickMart one, and ask for a text. Tap the link in the phone, add a note, say yes, and ask for a person. **Reset demo** (top right) reseeds everything.
+Script: press **Call Proud North**, then hold the button and say "Maya Chen, four four one seven." Say you don't recognize a charge of about two hundred dollars online, confirm it's the QuickMart one, and ask for a text. Tap the link in the phone, add a note, say yes, and ask for a person. **Reset demo** (top right) reseeds everything.
 
 Other paths to try: three wrong verifications (agent locks and escalates), the link tapped twice (already used), and "demo: send an expired link" under the phone.
 

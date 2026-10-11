@@ -52,7 +52,7 @@ export function CardHeader({ channel, title, live, right }: { channel: string; t
         <h2 className="text-[22px] font-medium leading-tight tracking-[-0.02em]">{title}</h2>
         <p className="flex items-center gap-1.5 whitespace-nowrap text-[13px] text-onlight-muted">
           <span className={`live-dot h-2 w-2 rounded-full bg-accent ${live ? "on" : "opacity-50"}`} aria-hidden="true" />
-          Northgate AI agent
+          Proud North AI agent
         </p>
       </div>
       {right}
@@ -85,7 +85,7 @@ export const FAILURE_COPY: Record<string, string> = {
   invalid: "That link isn't valid. Let's verify you again so I can help.",
 };
 
-export const GREETING: Msg = { channel: "chat", role: "agent", text: "Hi, I'm Northgate's virtual assistant. How can I help today?" };
+export const GREETING: Msg = { channel: "chat", role: "agent", text: "Hi, I'm Proud North's virtual assistant. How can I help today?" };
 
 type History = { channel: Channel; role: "customer" | "agent"; text: string; ts?: string }[];
 

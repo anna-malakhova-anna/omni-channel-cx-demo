@@ -27,7 +27,7 @@ export default function Demo() {
           <span className="flex h-7 w-7 items-center justify-center rounded-full bg-accent text-accent-ink" aria-hidden="true">
             <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M6 19V5l12 14V5" /></svg>
           </span>
-          <span className="text-[17px] font-medium tracking-[-0.01em]">Northgate</span>
+          <span className="text-[17px] font-medium tracking-[-0.01em]">Proud North</span>
           <span className="hidden text-[15px] text-ondark-muted min-[760px]:inline">Omnichannel agent demo</span>
         </div>
         <button onClick={reset} className="btn-secondary">Reset demo</button>

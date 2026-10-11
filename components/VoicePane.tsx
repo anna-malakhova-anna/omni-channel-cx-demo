@@ -15,7 +15,7 @@ type RecCtor = new () => SpeechRec;
 type Phase = "idle" | "speaking" | "listening" | "thinking";
 interface Line { role: "customer" | "agent"; text: string }
 
-const GREETING = "Thanks for calling Northgate Bank. To get started, may I have your full name and the last four digits of your card?";
+const GREETING = "Thanks for calling Proud North Bank. To get started, may I have your full name and the last four digits of your card?";
 
 /** Models sometimes slip in markdown or links; never let TTS read them out. */
 const speakable = (t: string) => t.replace(/https?:\/\/\S+/g, "").replace(/[*_`#>|]/g, "").replace(/^\s*[-•]\s+/gm, "").replace(/\s+/g, " ").trim();
@@ -123,7 +123,7 @@ export default function VoicePane({ session, onUpdate }: { session?: string; onU
       <CardHeader channel="voice" title="Voice" live={phase === "speaking" || phase === "thinking"} right={phase === "speaking" ? <span className="wave flex h-4 items-center gap-0.5" aria-hidden="true"><i /><i /><i /></span> : undefined} />
       {!supported && <p className="mt-3 rounded-bubble bg-[#F3E3D6] p-3 text-[13px] text-[#5A3418]">Voice needs speech recognition, which this browser doesn&apos;t support. Please open the demo in Chrome.</p>}
       <div className="min-h-0 flex-1 space-y-3 overflow-y-auto py-4" aria-live="polite">
-        {!inCall && lines.length === 0 && <p className="pt-8 text-center text-[15px] text-onlight-muted">Call Northgate as Maya Chen to start.</p>}
+        {!inCall && lines.length === 0 && <p className="pt-8 text-center text-[15px] text-onlight-muted">Call Proud North as Maya Chen to start.</p>}
         {lines.map((l, i) => <Bubble key={i} role={l.role}>{l.text}</Bubble>)}
         <div ref={end} />
       </div>
@@ -131,7 +131,7 @@ export default function VoicePane({ session, onUpdate }: { session?: string; onU
       <div className="flex flex-col items-center gap-2 border-t border-card-border pt-3">
         {interim && <p className="line-clamp-2 min-h-5 text-center text-[15px] italic text-onlight-muted">{interim}…</p>}
         {!inCall ? (
-          <button onClick={startCall} disabled={!supported} className="btn-primary w-full">Call Northgate</button>
+          <button onClick={startCall} disabled={!supported} className="btn-primary w-full">Call Proud North</button>
         ) : (
           <>
             <button

@@ -22,7 +22,7 @@ export default function SmsPane({ onTapLink, session, onReplyDone }: { onTapLink
       fresh.forEach((m) => seen.current.add(m.id));
       if (fresh.length) {
         // Slide in as a notification banner, then settle into the thread.
-        setBanner("Secure link from Northgate");
+        setBanner("Secure link from Proud North");
         clearTimeout(hide);
         hide = setTimeout(() => {
           setBanner(null);
@@ -58,11 +58,11 @@ export default function SmsPane({ onTapLink, session, onReplyDone }: { onTapLink
     <section aria-label="SMS" className="mx-auto flex h-full min-h-0 w-full max-w-[320px] flex-col rounded-[36px] border-[8px] border-[#0A0E0D] bg-card text-onlight shadow-card">
       <div className="flex items-center justify-between px-5 pt-2 text-xs font-medium"><span>9:41</span><span aria-hidden="true">▂▄▆ 5G</span></div>
       <div className="relative border-b border-card-border pb-2 text-center">
-        <p className="text-[15px] font-medium">Northgate</p>
+        <p className="text-[15px] font-medium">Proud North</p>
         <p className="text-[13px] text-onlight-muted">Text message · Maya&apos;s phone</p>
         {banner && (
           <div className="banner-in absolute inset-x-2 top-0 z-10 rounded-2xl bg-bg1 px-3 py-2 text-left text-[13px] text-ondark shadow-card" role="status">
-            <span className="font-medium">Northgate</span> · now<br />{banner}
+            <span className="font-medium">Proud North</span> · now<br />{banner}
           </div>
         )}
       </div>

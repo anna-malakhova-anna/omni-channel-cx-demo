@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], weight: ["400", "500"] });
 
 export const metadata: Metadata = {
-  title: "Northgate omnichannel agent demo",
+  title: "Proud North omnichannel agent demo",
   description: "One AI agent across voice, SMS and chat, with identity and context carried between channels. Fictional bank, synthetic data.",
 };
 

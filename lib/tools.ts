@@ -108,7 +108,7 @@ export function runTool(name: string, input: Input, ctx: ToolContext): ToolResul
     const token = mintLinkToken(repo, customerId, str(input.purpose) || "add_dispute_details");
     const base = process.env.APP_URL || "http://localhost:3000";
     // Delivery = the SMS pane reads this from the timeline. The URL never goes back to the model.
-    repo.appendTimeline({ customerId, channel: "sms", role: "agent", content: `Northgate Bank: tap to securely add details to your dispute (link expires in 15 min): ${base}/chat?t=${token}` });
+    repo.appendTimeline({ customerId, channel: "sms", role: "agent", content: `Proud North Bank: tap to securely add details to your dispute (link expires in 15 min): ${base}/chat?t=${token}` });
     return { ok: true, sentTo: maskPhone(customer.phone), expiresInMinutes: 15 };
   }
 
