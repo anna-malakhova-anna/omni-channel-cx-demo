@@ -52,7 +52,7 @@ export function CardHeader({ channel, title, live, right }: { channel: string; t
         <h2 className="text-[22px] font-medium leading-tight tracking-[-0.02em]">{title}</h2>
         <p className="flex items-center gap-1.5 whitespace-nowrap text-[13px] text-onlight-muted">
           <span className={`live-dot h-2 w-2 rounded-full bg-accent ${live ? "on" : "opacity-50"}`} aria-hidden="true" />
-          Proud North AI agent
+          AI agent
         </p>
       </div>
       {right}

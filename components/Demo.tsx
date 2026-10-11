@@ -25,7 +25,7 @@ export default function Demo() {
       <header className="flex h-16 items-center justify-between rounded-full bg-bg1 pl-4 pr-3" style={{ border: "var(--border-dark)" }}>
         <div className="flex items-center gap-3">
           <span className="flex h-7 w-7 items-center justify-center rounded-full bg-accent text-accent-ink" aria-hidden="true">
-            <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M6 19V5l12 14V5" /></svg>
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"><path d="M1.5 19.5 8.5 7l3.2 5.4L15.6 5l6.9 14.5z" /></svg>
           </span>
           <span className="text-[17px] font-medium tracking-[-0.01em]">Proud North</span>
           <span className="hidden text-[15px] text-ondark-muted min-[760px]:inline">Omnichannel agent demo</span>
